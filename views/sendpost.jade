@@ -1,0 +1,81 @@
+extends layout
+block content
+    //h1= title
+    .row
+        button#btn_driver.btn.btn-danger.col-xs-2.col-xs-off-1
+            p3 I'm a Driver
+        button#btn_passenger.btn.btn-danger.col-xs-2.col-xs-off-3
+            p3 I'm a Passenger
+    div
+        form#driver_form.row(action="/driver_post" method="post")
+            .col-xs-4
+                h2 Route
+                label.col-sm-12.row
+                    span.col-sm-6 Pick Location*:
+                    input.col-sm-6(type="text" name="pick_up_location" )
+                label.col-sm-12.row
+                    span.col-sm-6 Drop Location*:
+                    input.col-sm-6(type="text" name="drop_down_location" )
+                label.col-sm-12.row
+                    span.col-sm-6 Start Time*:
+                    input.col-sm-6(type="text" name="start_time" )
+                label.col-sm-12.row
+                    span.col-sm-6 End Time*:
+                    input.col-sm-6(type="text" name="end_time" )
+            .col-xs-4
+                h2 Driver
+                label.col-sm-12.row
+                    span.col-sm-6 Name*:
+                    input.col-sm-6(type="text" name="name" )
+                label.col-sm-12.row
+                    span.col-sm-6 Age:
+                    input.col-sm-6(type="text" name="age")
+                label.col-sm-12.row
+                    span.col-sm-6 Language:
+                    input.col-sm-6(type="text" name="language")
+            .col-xs-4
+                h2 Car
+                label.col-sm-12.row
+                    span.col-sm-6 Price*:
+                    input.col-sm-6(type="text" name="price")
+                label.col-sm-12.row
+                    span.col-sm-6 Seat Left*:
+                    input.col-sm-6(type="text" name="seat_left" )
+                label.col-sm-12.row
+                    span.col-sm-6 Car Type:
+                    input.col-sm-6(type="text" name="car_type")
+            .col-xs-12
+                input.col-xs-4.col-xs-offset-4.btn.btn-danger(type="submit" value="Submit")
+        form#passenger_form.row(action="/passenger_post" method="post")
+            .col-xs-4
+                //input.col-sm-0(type="text" name="pick_up_location" )
+                h2 Route
+                label.col-sm-12.row
+                    span.col-sm-6 Pick Location*:
+                    input.col-sm-6(type="text" name="pick_up_location" )
+                label.col-sm-12.row
+                    span.col-sm-6 Drop Location*:
+                    input.col-sm-6(type="text" name="drop_down_location" )
+                label.col-sm-12.row
+                    span.col-sm-6 Start Time*:
+                    input.col-sm-6(type="text" name="start_time" )
+            .col-xs-4
+                h2 Passenger
+                label.col-sm-12.row
+                    span.col-sm-6 Name*:
+                    input.col-sm-6(type="text" name="name" )
+                label.col-sm-12.row
+                    span.col-sm-6 Language:
+                    input.col-sm-6(type="text" name="language")
+            .col-xs-4
+                h2 Car
+                label.col-sm-12.row
+                    span.col-sm-6 Price offer*:
+                    input.col-sm-6(type="text" name="price" required)
+                label.col-sm-12.row
+                    span.col-sm-6 Seat Needed:
+                    input.col-sm-6(type="text" name="seat_left" )
+            .col-xs-12
+                input.col-xs-4.col-xs-offset-4.btn.btn-danger(type="submit" value="Submit")
+    script(src='./javascripts/lib/jquery-2.2.4.min.js')
+    script(src='./javascripts/front_end.js')

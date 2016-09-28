@@ -1,0 +1,36 @@
+extends layout
+block content
+    h1 Available Route
+    ul.row
+        each item in data
+            li.row.col-lg-12
+                article.row
+                    p.post_title
+                    .post_section.post_user_info.col-lg-4.col-md-4.col-sm-3.col-xs-12
+                        .user_profile_holder
+                            img(src='https://www.inkydeals.com/wp-content/uploads/2013/09/Illustrator-tutorial-how-to-create-vintage-car-service-logo-19.jpg')
+                            .user_profile_info_block
+                                h4 name: #{item.name}
+                                h4 age: #{item.age}
+                                if(item.verified=='true')
+                                    h4 ID verified
+                                    span.glyphicon.glyphicon-ok-circle
+                                else
+                                    h4 NOT VERIFIED!
+                        .profile_row
+                            span.glyphicon.glyphicon-star
+                            span rating:
+                            for
+                            span=item.rating
+                        .profile_row
+                    .post_section.post_center.col-lg-7.col-md-5.col-sm-12.col-xs-12
+                        h3 #{item.pick_up_location} -to- #{item.drop_down_location}
+                        h5 #{item.start_time} - #{item.end_time}
+                        p Language: #{item.language}
+                        p Car Type: #{item.car_type}
+                    .post_section.post_right.col-lg-6.col-md-2.col-sm-6.col-xs-12
+                        h3="$"+item.price
+                        p Seat Left: #{item.seat}
+                        .button_sec
+                            //button.btn.btn-danger Book and Pay
+                            //button.btn.btn-info Contact (phone)

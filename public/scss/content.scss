@@ -1,0 +1,145 @@
+@import 'compass/css3';
+$c1: #37FF8B;
+$c2: #0f8aaa;
+$c3: #707478;
+$c4: #2d353c;
+$c5: #348fe2;
+$c6: #00acac;
+$list_height: 30vh;
+
+#app_container {
+  height: 100%;
+  //margin-top: $header_height;
+  width: auto;
+  .bottom_section{
+    margin: 0 auto;
+  }
+
+}
+#content_container{
+  height:100%;
+  @include box-sizing(border-box);
+  //margin-left: 200px;
+  padding: 20px;
+  background: #d9e0e7;
+}
+#list_container {
+  display: block;
+  margin: 0 auto;
+  overflow: auto;
+  height: 100vh;
+  li {
+    //background: black;
+    overflow: hidden;
+    color: white;
+    width:750px;
+    height: auto;
+    //min-width: 600px;
+    //max-width: 600px;
+    //max-height: 600px;
+    padding: 10px;
+    position: relative;
+    float: left;
+    //background: red;
+    #post_block {
+      //background-image: url('https://gopackup.com/files/images/original/1350004435kyr26v.jpg');
+
+      @include border-radius(4px);
+      //overflow: hidden;
+      //margin: 0 auto;
+      display: block;
+      width:600px;
+      height: 340px;
+      //width: 100%;
+      background-color: $c6;
+      margin:10px -10px 0px 40px;
+
+      #post_bg{
+        overflow: hidden;
+        background-repeat:no-repeat;
+        background-size: cover;
+        opacity:0.8;
+        z-index:0;
+        width:100%;
+        height:100%;
+        position: absolute;
+      }
+    }
+  }
+}
+
+.post_user_info{
+  @include border-top-left-radius(20px);
+  //background: $c4;
+
+  .user_profile_holder {
+    height:100px;
+    width:100%;
+    //background: red;
+    //height:auto;
+    text-align: center;
+
+    //overflow: hidden;
+    .img_holder {
+      display: block;
+      float: left;
+      height: 5em;
+      width: 10em;
+      overflow: hidden;
+      img {
+        height:100%;
+        width:100%;
+        @include border-radius(20px);
+        @include border-bottom-left-radius(0px);
+
+
+        //margin-left:-2%;
+
+      }
+      .user_profile_info_block{
+        display:block;
+        height:100px;
+        float: left;
+      }
+    }
+  }
+
+
+  .profile_row{
+    float: left;
+    width:100%;
+    height:10%;
+    margin-top:3%;
+  }
+}
+.post_ride_info {
+  //transform: skewX(-30deg);
+  //display:none;
+  //left: 10%;
+  width: 100%;
+  float: left;
+  //background: $c3;
+}
+
+.post_section{
+  //background: $c2;
+  overflow: hidden;
+  width:100%;
+  //border-left: 2px solid gray;
+  //border-right: 2px solid gray;
+  margin: 10px;
+  float: left;
+}
+.content_center{
+  vertical-align: middle;
+}
+
+.font_sm{
+  font-size:1vh;
+}
+.font-md{
+
+}
+.font-lg{
+
+}

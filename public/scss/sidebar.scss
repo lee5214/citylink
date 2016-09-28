@@ -1,0 +1,27 @@
+@import 'compass/css3';
+#sidebar_container {
+  height: 100%;
+  @include box-sizing(border-box);
+  color:white;
+  text-align: center;
+  position: fixed;
+  background: #1a2229;
+  width: 200px;
+  .slimScrollDiv{
+    position: relative;
+    width: auto;
+    height: 100%;
+    .sc{
+      width: auto;
+      height: 100%;
+    }
+    .a{
+      display: block;
+      position: relative;
+      height: 10vh;
+      width:  100%;
+    }
+  }
+
+}
+

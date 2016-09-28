@@ -1,0 +1,334 @@
+extends layout
+head
+block content
+    #header.container
+        .row
+            button#btn_get_driver.btn.btn-danger.col-xs-2.col-xs-offset-1(onclick='window.open("/driver","_self")') I need a ride
+            button#btn_get_passenger.btn.btn-danger.col-xs-2.col-xs-offset-2(onclick='window.open("/passenger","_self")') I have a car
+            button#post_btn.btn.btn-danger.col-xs-2.col-xs-offset-2 Submit Post
+    #app_container.container
+        //#map_container
+        #content_container
+            #list_container
+                each item in data
+                    li.row.col-lg-6.col-md-6.col-sm-12.col-xs-12
+                        #post_block
+                            if(item.drop_down_location==="San Francisco")
+                                #post_bg(style='background-image:url("./images/bg_sf.jpg");')
+                            else if(item.drop_down_location==="Los Angeles")
+                                #post_bg(style='background-image:url("./images/bg_la.jpg");')
+                            else
+                                #post_bg(style='background-color:#00acac;')
+                            .post_section.post_user_info
+                                .row.user_profile_holder
+                                    .img_holder.col-lg-4.col-md-4.col-xs-4
+                                        if(role === "driver")
+                                            img(src='./images/driver_def_img.ico')
+                                        else if(role === "passenger")
+                                            img(src='./images/passenger_def_img.png')
+                                    .user_profile_info_block.col-lg-4.col-md-4.col-xs-4
+                                        span.txt_op07 Name:
+                                        span  #{item.name}
+                                        hr
+                                        span.txt_op07 Age:
+                                        span  #{item.age}
+                                        hr
+                                        if(item.verified == 'true')
+                                            span ID VERIFIED
+                                        else
+                                            span ID NOT VERIFIED!
+                                    .car_info_holder.col-lg-4.col-md-4.col-xs-4
+                                        .row
+                                            span.txt_op07 $
+                                            span #{item.price}
+                                            hr
+                                            span.txt_op07 Seat:
+                                            span #{item.seat}
+                            .progress
+                                .progress-bar
+                            .row.post_section.post_ride_info
+                                .col-xs-6
+                                    .row
+                                        h4.col-xs-3.text-center.txt_bg_sec1txt_op07 From
+                                        .col-xs-9
+                                            h4.txt_weight500.text-center.txt_bg_sec1 #{item.pick_up_location}
+                                    .row
+                                        h4.col-xs-3.text-center.txt_bg_sec1txt_op07 To
+                                        .col-xs-9
+                                            h4.txt_weight500.text-center.txt_bg_sec1 #{item.drop_down_location}
+                                            //h4 #{item.end_time}
+                                    .row
+                                        h4.col-xs-3.text-center.txt_bg_sec1txt_op07 Date
+                                        .col-xs-9
+                                            h4.txt_weight500.text-center.txt_bg_sec1 #{item.start_date}
+                                    .row
+                                        h4.col-xs-3.text-center.txt_bg_sec1txt_op07 Time
+                                        .col-xs-9
+                                            h4.txt_weight500.text-center.txt_bg_sec1 #{item.start_time}
+                                .col-xs-6
+                                    .row
+                                        h4.col-xs-3.text-center.txt_bg_sec1txt_op07  Speak
+                                        .col-xs-9
+                                            h4.txt_weight500.text-center.txt_bg_sec1 #{item.language}
+                                    .row
+                                        h4.col-xs-3.text-center.txt_bg_sec1txt_op07  Car
+                                        .col-xs-9
+                                            h4.txt_weight500.text-center.txt_bg_sec1 #{item.car_type}
+                                    .row
+                                        h4.col-xs-3.text-center.txt_bg_sec1txt_op07  Contact
+                                        .col-xs-9
+                                            h5.txt_weight500.text-center.txt_bg_sec1 (415) 941-7595
+                                            h5.txt_weight500.text-center.txt_bg_sec1 contact@fargotour.com
+                #submit_form.container
+                    hr
+                    .row
+                        .col-xs-6
+                            button#btn_driver.btn.btn-danger.col-xs-8.col-xs-offset-2
+                                p3 I'm a Driver
+                        .col-xs-6
+                            button#btn_passenger.btn.btn-danger.col-xs-8.col-xs-offset-2
+                                p3 I'm a Passenger
+                    div
+                        form#driver_form.row.has-success.has-warning(action="/driver_post" method="post")
+                            //section 1
+                            .col-xs-12.col-md-6
+                                legend Route
+                                //pick
+                                span.col-xs-4 Pick Location*:
+                                label.col-xs-4.row
+                                    input.col-xs-1(type="radio" name="pick_up_location" value="San Francisco" required)
+                                    span.col-xs-11 San Francisco
+                                label.col-xs-4.row
+                                    input.col-xs-1(type="radio" name="pick_up_location" value="Los Angeles" required)
+                                    span.col-xs-11 Los Angeles
+                                //drop
+                                span.col-xs-4 Drop Location*:
+                                label.col-xs-4.row
+                                    input.col-xs-1(type="radio" name="drop_down_location" value="San Francisco" required)
+                                    span.col-xs-11 San Francisco
+                                label.col-xs-4.row
+                                    input.col-xs-1(type="radio" name="drop_down_location" value="Los Angeles" required)
+                                    span.col-xs-11 Los Angeles
+                                //time
+                                span.col-xs-4 Date*
+                                label.col-xs-8.row
+                                    input.col-xs-5(type="date" name="start_date" value="")
+
+                                span.col-xs-4 Time*
+                                label.col-xs-8.row
+                                    input.col-xs-5(type="time" name="start_time" required placeholder="HH:MM")
+                            //section 2
+                            .col-xs-12.col-md-6
+                                legend Driver
+                                span.col-xs-4 Name*:
+                                label.col-xs-8.row
+                                    input.col-xs-6(type="text" name="name" required placeholder="")
+
+                                span.col-xs-4 Age*:
+                                label.col-xs-8.row
+                                    input.col-xs-6(type="number" min="18" max="80" name="age" required placeholder="frome 18 to 80")
+
+                                span.col-xs-4 Phone*:
+                                label.col-xs-8.row
+                                    input.col-xs-6(type="tel" name="phone" required placeholder="valid contact number")
+
+                                span.col-xs-4 Email*:
+                                label.col-xs-8.row(for="form_driver_email")
+                                    input.col-xs-6(type="email" id="form_driver_email")
+
+                                span.col-xs-4 Language:
+                                label.col-xs-8.row
+                                    .col-xs-4
+                                        input.col-xs-1(type="radio" name="language" value="Chinese")
+                                        span.col-xs-11 Chinese
+                                    .col-xs-4
+                                        input.col-xs-1(type="radio" name="language" value="English")
+                                        span.col-xs-11 English
+                                    .col-xs-4
+                                        input.col-xs-1(type="radio" name="language" value="Chinese, English")
+                                        span.col-xs-11 Both
+                            //section 3
+                            .col-xs-12.col-md-6
+                                legend Car
+                                span.col-xs-4 Price*
+                                label.col-xs-8.row
+                                    input.col-xs-6(type="number" name="price" min="0" max="999" required placeholder="number")
+
+                                span.col-xs-4 Seat Left*
+                                label.col-xs-8.row
+                                    input.col-xs-6(type="number" name="seat" min="1" max="100" required placeholder="number")
+                                //define car type
+
+                                span.col-xs-4 Car Type
+                                label.col-xs-8.row
+                                    .col-xs-4
+                                        input.col-xs-1(type="radio" name="car_type" value="2-door")
+                                        span.col-xs-11 2-door
+                                    .col-xs-4
+                                        input.col-xs-1(type="radio" name="car_type" value="4-door")
+                                        span.col-xs-11 4-door
+                                    .col-xs-4
+                                        input.col-xs-1(type="radio" name="car_type" value="6-door")
+                                        span.col-xs-11 6-door
+                            //submit
+                            .col-xs-12
+                                input.col-xs-4.col-xs-offset-4.btn.btn-danger(type="submit" value="Submit")
+                            //input(type="text" value="02-16-2012")
+                            .input-append.date.form_datetime
+                            span.add-on
+                                i.icon-th
+
+                        form#passenger_form.row.has-success.has-warning(action="/passenger_post" method="post")
+                            //section 1
+                            .col-xs-12.col-md-6
+                                legend Route
+                                //pick
+                                span.col-xs-4 Pick Location*:
+                                label.col-xs-4.row
+                                    input.col-xs-1(type="radio" name="pick_up_location" value="San Francisco" required)
+                                    span.col-xs-11 San Francisco
+                                label.col-xs-4.row
+                                    input.col-xs-1(type="radio" name="pick_up_location" value="Los Angeles" required)
+                                    span.col-xs-11 Los Angeles
+                                //drop
+                                span.col-xs-4 Drop Location*:
+                                label.col-xs-4.row
+                                    input.col-xs-1(type="radio" name="drop_down_location" value="San Francisco" required)
+                                    span.col-xs-11 San Francisco
+                                label.col-xs-4.row
+                                    input.col-xs-1(type="radio" name="drop_down_location" value="Los Angeles" required)
+                                    span.col-xs-11 Los Angeles
+                                //time
+                                span.col-xs-4 Date*
+                                label.col-xs-8.row
+                                    input.col-xs-5(type="date" name="start_date" value="")
+                                    //input.col-xs-5(type="text" name="start_date" placeholder="MM/DD")
+
+                                span.col-xs-4 Time*
+                                label.col-xs-8.row
+                                    input.col-xs-5(type="time" name="start_time" required placeholder="HH:MM")
+                            //
+                              span.col-xs-4 End Time*
+                              label.col-xs-8.row
+                                input.col-xs-5(type="text" name="end_date" required placeholder="MM/DD")
+                                input.col-xs-6(type="text" name="end_time" required placeholder="H/M")
+                            //section 2
+                            .col-xs-12.col-md-6
+                                legend Passenger
+                                span.col-xs-4 Name*:
+                                label.col-xs-8.row
+                                    input.col-xs-6(type="text" name="name" required placeholder="")
+
+                                span.col-xs-4 Age:
+                                label.col-xs-8.row
+                                    input.col-xs-6(type="number" min="18" max="80" name="age")
+
+                                //  input.col-xs-4(type="checkbox" name="language" value="English")
+                                  span English
+                                span.col-xs-4 Phone*:
+                                label.col-xs-8.row
+                                    input.col-xs-6(type="tel" name="phone" required placeholder="phone")
+
+                                span.col-xs-4 Email*:
+                                label.col-xs-8.row(for="form_passenger_email")
+                                    input.col-xs-6(type="email" id="form_passenger_email")
+
+                                span.col-xs-4 Language:
+                                label.col-xs-8.row
+                                    .col-xs-4
+                                        input.col-xs-1(type="radio" name="language" value="Chinese")
+                                        span.col-xs-11 Chinese
+                                    .col-xs-4
+                                        input.col-xs-1(type="radio" name="language" value="English")
+                                        span.col-xs-11 English
+                                    .col-xs-4
+                                        input.col-xs-1(type="radio" name="language" value="Chinese, English")
+                                        span.col-xs-11 Both
+                            //section 3
+                            .col-xs-12.col-md-6
+                                legend Offer
+                                span.col-xs-4 Price Offer
+                                label.col-xs-8.row
+                                    input.col-xs-6(type="number" name="price" min="0" max="999" required )
+
+                                span.col-xs-4 Seat Needed*
+                                label.col-xs-8.row
+                                    input.col-xs-6(type="number" name="seat" min="1" max="100" required placeholder="number")
+                                //define car type
+
+                                span.col-xs-4 Car Type Preferred
+                                label.col-xs-8.row
+                                    .col-xs-4
+                                        input.col-xs-1(type="radio" name="car_type" value="2-door")
+                                        span.col-xs-11 2-door
+                                    .col-xs-4
+                                        input.col-xs-1(type="radio" name="car_type" value="4-door")
+                                        span.col-xs-11 4-door
+                                    .col-xs-4
+                                        input.col-xs-1(type="radio" name="car_type" value="6-door")
+                                        span.col-xs-11 6-door
+                            //submit
+                            .col-xs-12
+                                input.col-xs-4.col-xs-offset-4.btn.btn-danger(type="submit" value="Submit")
+                            //input(type="text" value="02-16-2012")
+                            .input-append.date.form_datetime
+                            span.add-on
+                                i.icon-th
+
+                    //      .input-append.date.form_datetime
+                            input(size="16" type="text" value="" readonly)
+                            span.add-on
+                                i.icon-th
+
+
+                            .col-xs-4
+                                //input.col-xs-0(type="text" name="pick_up_location" )
+                                h2 Route
+                                label.col-xs-12.row
+                                    span.col-xs-12 Pick Location*:
+                                    input.col-xs-6(type="text" name="pick_up_location" required)
+                                label.col-xs-12.row
+                                    span.col-xs-6 Drop Location*:
+                                    input.col-xs-6(type="text" name="drop_down_location" required)
+                                label.col-xs-12.row
+                                    span.col-xs-6 Start Time*:
+                                    input.col-xs-6(type="text" name="start_time" required)
+
+                            .col-xs-4
+                                h2 Passenger
+                                label.col-xs-12.row
+                                    span.col-xs-6 Name*:
+                                    input.col-xs-6(type="text" name="name" )
+                                label.col-xs-12.row
+                                    span.col-xs-6 Language:
+                                    input.col-xs-6(type="text" name="language")
+                                label.col-xs-12.row
+                                    span.col-xs-6 Phone:
+                                    input.col-xs-6(type="tel" name="phone" required placeholder="phone")
+                                label.col-xs-12.row
+                                    span.col-xs-6 Email:
+                                    input.col-xs-6(type="email" name="email")
+                            .col-xs-4
+                                h2 Car
+                                label.col-xs-12
+                                    span.col-xs-6 Price offer*:
+                                    input.col-xs-6(type="text" name="price" required)
+                                label.col-xs-12
+                                    span.col-xs-6 Seat Needed:
+                                    input.col-xs-6(type="text" name="seat_left" )
+                            .col-xs-12
+                                input.col-xs-4.col-xs-offset-4.btn.btn-danger(type="submit" value="Submit" onsubmit="setTimeout(function () { window.location.reload(); }, 100)")
+                                //iframe(id='submit_form' type='text/html' width='100%' height='50%' src='/driver_post' frameborder='0')
+                                //iframe.col-md-12(id='list_frame' type='text/html' width='100%' height='100%' src='/driver' frameborder='0')
+                            input(type="date" value="2012-06-15 14:45")
+
+//
+  script.
+    $(".form_datetime").datetimepicker({
+      format: "dd MM yyyy - hh:ii",
+      autoclose: true,
+      todayBtn: true,
+      pickerPosition: "bottom-left"
+    });
+      //script(src='./javascripts/map_api.js')
+      //script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTHf7usrxdR4GVfF068yf2jOpt32PhdZg&callback=initMap", async defer)

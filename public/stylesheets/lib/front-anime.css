@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    overflow:hidden;
+    background:#000000;
+}
+
+
+canvas{
+    position:absolute;
+    top:0;
+    transition-duration:.25s;
+}
+
+
+div#container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}

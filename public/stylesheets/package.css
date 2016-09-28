@@ -1,0 +1,265 @@
+/* line 3, ../scss/main.scss */
+body {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* line 8, ../scss/main.scss */
+li {
+  list-style-type: none;
+}
+
+/* line 11, ../scss/main.scss */
+h3 {
+  font-size: 1.8em;
+}
+
+/* line 14, ../scss/main.scss */
+h4 {
+  font-size: 1.4em;
+}
+
+/* line 17, ../scss/main.scss */
+h5 {
+  font-size: 1em;
+}
+
+/* line 21, ../scss/main.scss */
+#header {
+  z-index: 100;
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 5vh;
+  width: 100%;
+  background: white;
+}
+
+/* line 32, ../scss/main.scss */
+.txt_weight500 {
+  font-weight: 500;
+}
+
+/* line 37, ../scss/main.scss */
+.txt_op05 {
+  opacity: 0.5;
+}
+
+/* line 40, ../scss/main.scss */
+.txt_op07 {
+  color: white;
+  opacity: 1;
+}
+
+/* line 45, ../scss/main.scss */
+.txt_bg_sec1 {
+  background: #d9534f;
+  transform: skew(-20deg);
+}
+
+/* line 49, ../scss/main.scss */
+.progress {
+  width: 100%;
+  height: 3px;
+  background: black;
+  margin-bottom: 0;
+}
+
+/* line 55, ../scss/main.scss */
+.progress-bar {
+  width: 70%;
+  height: 3px;
+  background: white;
+}
+
+/* line 1, ../scss/map.scss */
+#map_container {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  display: block;
+  margin: 0 auto;
+}
+
+/* line 1, ../scss/submit.scss */
+#submit_form {
+  background: white;
+  z-index: 100;
+  overflow: scroll;
+  display: none;
+  width: 100%;
+  height: 90%;
+  position: fixed;
+  top: auto;
+  left: 0;
+  bottom: 0;
+}
+
+/* line 16, ../scss/submit.scss */
+#passenger_form {
+  display: none;
+}
+
+/* line 2, ../scss/sidebar.scss */
+#sidebar_container {
+  height: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: white;
+  text-align: center;
+  position: fixed;
+  background: #1a2229;
+  width: 200px;
+}
+/* line 10, ../scss/sidebar.scss */
+#sidebar_container .slimScrollDiv {
+  position: relative;
+  width: auto;
+  height: 100%;
+}
+/* line 14, ../scss/sidebar.scss */
+#sidebar_container .slimScrollDiv .sc {
+  width: auto;
+  height: 100%;
+}
+/* line 18, ../scss/sidebar.scss */
+#sidebar_container .slimScrollDiv .a {
+  display: block;
+  position: relative;
+  height: 10vh;
+  width: 100%;
+}
+
+/* line 10, ../scss/content.scss */
+#app_container {
+  height: 100%;
+  width: auto;
+}
+/* line 14, ../scss/content.scss */
+#app_container .bottom_section {
+  margin: 0 auto;
+}
+
+/* line 19, ../scss/content.scss */
+#content_container {
+  height: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #d9e0e7;
+}
+
+/* line 26, ../scss/content.scss */
+#list_container {
+  display: block;
+  margin: 0 auto;
+  overflow: auto;
+  height: 100vh;
+}
+/* line 31, ../scss/content.scss */
+#list_container li {
+  overflow: hidden;
+  color: white;
+  width: 750px;
+  height: auto;
+  padding: 10px;
+  position: relative;
+  float: left;
+}
+/* line 44, ../scss/content.scss */
+#list_container li #post_block {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  display: block;
+  width: 600px;
+  height: 340px;
+  background-color: #00acac;
+  margin: 10px -10px 0px 40px;
+}
+/* line 57, ../scss/content.scss */
+#list_container li #post_block #post_bg {
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.8;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+/* line 71, ../scss/content.scss */
+.post_user_info {
+  -moz-border-radius-topleft: 20px;
+  -webkit-border-top-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+/* line 75, ../scss/content.scss */
+.post_user_info .user_profile_holder {
+  height: 100px;
+  width: 100%;
+  text-align: center;
+}
+/* line 83, ../scss/content.scss */
+.post_user_info .user_profile_holder .img_holder {
+  display: block;
+  float: left;
+  height: 5em;
+  width: 10em;
+  overflow: hidden;
+}
+/* line 89, ../scss/content.scss */
+.post_user_info .user_profile_holder .img_holder img {
+  height: 100%;
+  width: 100%;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -moz-border-radius-bottomleft: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+/* line 99, ../scss/content.scss */
+.post_user_info .user_profile_holder .img_holder .user_profile_info_block {
+  display: block;
+  height: 100px;
+  float: left;
+}
+/* line 108, ../scss/content.scss */
+.post_user_info .profile_row {
+  float: left;
+  width: 100%;
+  height: 10%;
+  margin-top: 3%;
+}
+
+/* line 115, ../scss/content.scss */
+.post_ride_info {
+  width: 100%;
+  float: left;
+}
+
+/* line 124, ../scss/content.scss */
+.post_section {
+  overflow: hidden;
+  width: 100%;
+  margin: 10px;
+  float: left;
+}
+
+/* line 133, ../scss/content.scss */
+.content_center {
+  vertical-align: middle;
+}
+
+/* line 137, ../scss/content.scss */
+.font_sm {
+  font-size: 1vh;
+}

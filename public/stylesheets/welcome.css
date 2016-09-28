@@ -1,0 +1,28 @@
+/* line 3, ../scss/welcome.scss */
+#welcome_container {
+  z-index: 100;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 80vh;
+}
+/* line 4, ../scss/welcome.scss */
+#welcome_container * {
+  text-align: center;
+}
+/* line 13, ../scss/welcome.scss */
+#welcome_container .hero_section {
+  height: 50%;
+}
+/* line 17, ../scss/welcome.scss */
+#welcome_container .welcome_btn {
+  border: 0;
+  border-bottom: 4px solid white;
+  background: transparent;
+  color: white;
+}
+/* line 26, ../scss/welcome.scss */
+#welcome_container .welcome_btn:hover {
+  background: white;
+  color: black;
+}

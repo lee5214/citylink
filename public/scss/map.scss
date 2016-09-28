@@ -1,0 +1,12 @@
+#map_container {
+  @include border-radius(4px);
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  //background: black;
+
+  //margin: 0 auto;
+  //float: left;
+  display: block;
+  margin: 0 auto;
+}

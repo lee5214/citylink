@@ -1,0 +1,31 @@
+@import "compass/css3";
+$font-family1: 'Open Sans';
+#welcome_container{
+  *{
+    text-align: center;
+  }
+  //background-image: url("http://codepen.vincebrown.me/assets/images/snow-mountains.jpg");
+  z-index:100;
+  position: fixed;
+  width:100vw;
+  height:100vh;
+  top:80vh;
+    .hero_section{
+      height: 50%;
+    }
+
+    .welcome_btn{
+      //border-radius: 10px;
+      border: 0 ;
+      border-bottom:4px solid white;
+      background: transparent;
+      color: white;
+      //width: 140px;
+      //min-width: 100px;
+      //max-width: 200px;
+      &:hover {
+        background: white;
+        color: black;
+      }
+    }
+}
